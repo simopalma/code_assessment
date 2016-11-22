@@ -1,0 +1,30 @@
+{{#vendor}}
+    <div class="parking-element">
+        <span class="parking-text">
+            {{dictionary.bookYourParking}} {{departureAirport}}
+        </span>
+        <span class="parking-name">
+            {{name}}
+        </span>
+        <span class="show-more">
+            <span class="more-text">Mostra dettagli</span>
+            <span class="less-text">Nascondi dettagli</span>
+        </span>
+
+        <div class="expanded-content">
+            <span class="head-text"> {{dictionary.featuresTitle}} </span>
+            <div class="left-content">
+                <img src="{{map}}">
+            </div>
+            <div class="right-content">
+                <ul>
+                    {{#features}}
+                        <li><i class="fa fa-check"></i>{{.}}</li>
+                    {{/features}}
+                </ul>
+            </div>
+        </div>
+    </div>
+{{/vendor}}
+
+<div class="parking-list"></div>
