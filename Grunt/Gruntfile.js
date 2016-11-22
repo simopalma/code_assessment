@@ -29,6 +29,17 @@ module.exports = function (grunt) {
            }
        }
    },
+   'cssmin': {
+       'target': {
+           'files': [{
+               'expand': true,
+               'cwd': '../public/assets/stylesheet',
+               'src': ['*.css', '!*.min.css'],
+               'dest': '../public/assets/stylesheet',
+               'ext': '.min.css'
+           }]
+       }
+   },
    'watch':{
       'styles':{
          'files':[
@@ -47,6 +58,7 @@ module.exports = function (grunt) {
 grunt.loadNpmTasks('grunt-contrib-less');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 grunt.registerTask('default', ['less','watch']);
 
