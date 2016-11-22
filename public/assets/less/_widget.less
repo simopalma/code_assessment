@@ -1,0 +1,164 @@
+.widget-container {
+    display: inline-block;
+    width: 100%;
+
+    .parking-element {
+        display: block;
+        min-height: 80px;
+        border: 1px solid black;
+        position: relative;
+        padding: 10px;
+        margin: 25px;
+        .transition(max-height .5s ease);
+
+        .parking-text {
+            display: inline-block;
+        }
+
+        .parking-name {
+            float: right;
+        }
+
+        .show-more {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: @red;
+            cursor: pointer;
+
+            .less-text {
+                display: none;
+            }
+        }
+
+        .expanded-content {
+            margin-top: 15px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid black;
+            display: none;
+            overflow: hidden;
+
+            @media (max-width: @desktop-breakpoint) {
+              text-align: center;
+              width: 100%;
+            }
+
+            .head-text {
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            .left-content {
+                width: 50%;
+                float: left;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                @media (max-width: @desktop-breakpoint) {
+                  width: 90%;
+                  display: inline-block;
+                  float: none;
+                }
+            }
+            .right-content {
+                width: 50%;
+                float: left;
+
+                ul {
+                    list-style: none;
+                    margin-top: 0;
+
+                    @media (max-width: @desktop-breakpoint) {
+                      padding-left: 0;
+                    }
+
+                    li {
+                        margin: 5px 0;
+                        display: block;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        i {
+                            color: @green;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                @media (max-width: @desktop-breakpoint) {
+                    width: 90%;
+                    display: inline-block;
+                    float: none;
+                    text-align: left;
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        &.expanded {
+            padding-bottom: 50px;
+
+            .show-more {
+                .more-text {
+                    display: none;
+                }
+                .less-text {
+                    display: block;
+                }
+            }
+        }
+    }
+    .parking-list {
+        padding-top: 30px;
+        display: block;
+        text-align: center;
+        clear: both;
+
+        .single-parking-element {
+            width: 40%;
+            padding: 15px;
+            border: 1px solid black;
+            margin: 10px;
+            display: inline-block;
+            text-align: left;
+            position: relative;
+            padding-bottom: 40px;
+            cursor: pointer;
+
+            .text {
+                display: block;
+                margin-bottom: 10px;
+            }
+            .price-text {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .icon {
+                &.fa-times {
+                    color: @red;
+                    display: none;
+                    &.false {
+                        display: inline-block;
+                    }
+                }
+                &.fa-check {
+                    color: @green;
+                    display: inline-block;;
+                    &.false {
+                        display: none;
+                    }
+                }
+            }
+
+            @media (max-width: @desktop-breakpoint) {
+              width: auto;
+              display: block;
+            }
+        }
+    }
+}
