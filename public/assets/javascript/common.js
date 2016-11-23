@@ -7,18 +7,19 @@ var Module = Module || {};
 
 Module.common = (function()
 {
-    var module = {},
-        templatePath = '/templates/',
+    var module                  = {},
+        templatePath            = '/templates/',
+        widget                  = '.widget-container'
         widgetContainerTemplate = templatePath + 'widgetContainerTemplate.html',
-        parkingListTemplate = templatePath + 'parkingListTemplate.html',
-        jsonUrl = $('.widget-container').data('jsonUrl')
+        parkingListTemplate     = templatePath + 'parkingListTemplate.html',
+        jsonUrl                 = $('.widget-container').data('jsonUrl')
     ;
 
     // Render container of widget
     var renderWidgetContainerTemplate = function(json) {
         $.get(widgetContainerTemplate, function(template) {
             var rendered = Mustache.render(template, json);
-            $('.widget-container').html(rendered);
+            $(widget).html(rendered);
 
             Module.events.expandCollapse();
         });
@@ -28,7 +29,7 @@ Module.common = (function()
     var renderparkingListTemplate = function(json) {
         $.get(parkingListTemplate, function(template) {
             var rendered = Mustache.render(template, json);
-            $('.parking-list').html(rendered);
+            $('.parking-list', widget).html(rendered);
 
             Module.events.getPark();
         });

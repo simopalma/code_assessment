@@ -7,11 +7,13 @@ var Module = Module || {};
 
 Module.events = (function()
 {
-    var module = {};
+    var module = {},
+        widget = '.widget-container'
+    ;
 
     // This module expand a vendor section
     module.expandCollapse = function() {
-        var $button = $('.show-more');
+        var $button = $('.show-more', widget);
 
         $button.on('click', function() {
             var $parkElement = $(this).parent();
@@ -23,7 +25,7 @@ Module.events = (function()
 
     // This module get the park id after click it
     module.getPark = function() {
-        var $parkElement = $('.parking-list .single-parking-element'),
+        var $parkElement = $('.parking-list .single-parking-element', widget),
             id
         ;
 
