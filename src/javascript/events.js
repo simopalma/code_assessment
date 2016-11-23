@@ -35,8 +35,6 @@ Module.events = (function($)
             console.log('Hai selezionato il parcheggio con id: ' + id);
 
             $( document ).trigger( "addToCartEvent", id );
-
-            // Insert a callback function with id of parking element
         });
     };
 
