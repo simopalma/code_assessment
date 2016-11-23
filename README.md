@@ -40,7 +40,7 @@ Ex.<br>
 ```
 To add a parking into cart after click it, you need to listen for a custom event `addToCartEvent` with an additional parameter.
 ```javascript
-$(document).on('addToCartEvent', function(event, cartID) {
+$(document).on('addToCartEvent', function(event, parkID) {
     //Callback function after parking click
 });
 ```
