@@ -1,12 +1,9 @@
 module.exports = function (grunt) {
     grunt.initConfig({
    'path_input':{
-      'js_assets':'../public/assets/javascript'
-   },
-   'files_javascript':{
-      'assets':[
-         '<%= path_input.js_assets %>/common.js'
-      ]
+      'js_assets':'../src/javascript',
+      'less_assets':'../src/less',
+      'demo_path':'../demo'
    },
    'less':{
       'development':{
@@ -14,8 +11,8 @@ module.exports = function (grunt) {
             'compress':true
          },
          'files':{
-            '../public/assets/stylesheet/style.css':['../public/assets/less/main.less'],
-            '../public/assets/stylesheet/layout.css':['../public/assets/less/layout.less']
+            '<%= path_input.demo_path %>/assets/stylesheet/style.css':['<%= path_input.less_assets %>/main.less'],
+            '<%= path_input.demo_path %>/assets/stylesheet/layout.css':['<%= path_input.less_assets %>/layout.less']
          }
       }
    },
@@ -25,7 +22,7 @@ module.exports = function (grunt) {
        },
        'my_target': {
            'files': {
-               '<%= path_input.js_assets %>/output.min.js': ['<%= path_input.js_assets %>/jsonData.js','<%= path_input.js_assets %>/common.js','<%= path_input.js_assets %>/events.js']
+               '<%= path_input.demo_path %>/assets/javascript/output.min.js': ['<%= path_input.js_assets %>/jsonData.js','<%= path_input.js_assets %>/common.js','<%= path_input.js_assets %>/events.js']
            }
        }
    },
@@ -35,7 +32,7 @@ module.exports = function (grunt) {
                'expand': true,
                'cwd': '../public/assets/stylesheet',
                'src': ['*.css', '!*.min.css'],
-               'dest': '../public/assets/stylesheet',
+               'dest': '<%= path_input.demo_path %>/assets/stylesheet',
                'ext': '.min.css'
            }]
        }
@@ -43,7 +40,7 @@ module.exports = function (grunt) {
    'watch':{
       'styles':{
          'files':[
-            '../public/assets/less/*.less'
+            '<%= path_input.less_assets %>/*.less'
          ],
          'tasks':[
             'less'

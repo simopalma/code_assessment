@@ -22,7 +22,7 @@
 var server = {
     hostname     : '127.0.0.1',
     port         : 8000,
-    documentRoot : 'public',
+    documentRoot : 'demo',
 };
 
 var http = require('http');

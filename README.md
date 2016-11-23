@@ -9,14 +9,25 @@ Requirements
 
   Dependencies
   - [Mustache]
-  - [Jquery]
+  - [jQuery]
 
 Preparations:
-  - In the command line go into the folder `Grunt` and install project dependencies with `npm install`
-  - In the command line go into the root folder and install bower components with `bower install`
-  - In the command line go into the root folder and start [server] with `node webserver.js`, server start up in http://127.0.0.1:8000/
+  - In the command line go into the folder `grunt` and install project dependencies
+```
+npm install
+```
+  - In the command line go into the root folder and install bower components
+```
+  bower install
+```
+  - In the command line go into the root folder and start [server]
+```
+  node webserver.js
+```
+  server start up in http://127.0.0.1:8000/
 
-  ### How to use a widget
+
+### How to use a widget
 
 Include all files into dist folder and its dependencies.<br>
 Insert a template folder into your public folder.<br>
@@ -27,6 +38,13 @@ Ex.<br>
 ```html
 <div class="widget-container" data-json-url="path/url.json"></div>
 ```
+To add a parking into cart after click it, you need to listen for a custom event `addToCartEvent` with an additional parameter.
+```javascript
+$(document).on('addToCartEvent', function(event, cartID) {
+    //Callback function after parking click
+});
+```
+
 
 In this repository all is ready to test a widget, I created a index file with all dependencies included.
 
@@ -37,5 +55,5 @@ In this repository all is ready to test a widget, I created a index file with al
    [Grunt]: <http://gruntjs.com/getting-started/>
    [Node]: <https://nodejs.org/en//>
    [Mustache]: <https://github.com/janl/mustache.js/>
-   [Jquery]: <https://jquery.com//>
+   [jQuery]: <https://jquery.com//>
    [server]: <https://gist.github.com/marcomontalbano/2851d00d96e592f03a8a34f8de073bd4/>
